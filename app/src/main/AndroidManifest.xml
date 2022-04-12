@@ -12,9 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LightTouch">
         <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".LTHome"
             android:exported="false"
-            android:label="Home"/>
+            android:label="Home" />
         <activity
             android:name=".SplashActivity"
             android:exported="true">

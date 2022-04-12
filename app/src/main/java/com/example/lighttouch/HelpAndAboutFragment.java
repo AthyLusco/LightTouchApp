@@ -1,5 +1,6 @@
 package com.example.lighttouch;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -49,6 +50,10 @@ public class HelpAndAboutFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Changing the action bar title
+        //getActivity().setTitle("Help And About");
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -59,6 +64,10 @@ public class HelpAndAboutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
+        //Changing the action bar title
+        //ActionBar actionBar = getActivity().getActionBar();
+        //actionBar.setTitle("Help And About");
         return inflater.inflate(R.layout.fragment_help_and_about, container, false);
     }
 }

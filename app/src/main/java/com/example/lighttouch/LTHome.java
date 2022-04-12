@@ -50,7 +50,25 @@ public class LTHome extends AppCompatActivity {
                 new TabLayoutMediator.TabConfigurationStrategy() {
                     @Override
                     public void onConfigureTab(@NonNull TabLayout.Tab tab, int position) {
-                        tab.setText("Tab " + (position + 1));
+                        switch (position){
+                            case 0:
+                                tab.setText("Switch");
+                                //getActionBar().setTitle("Light Switch");
+                                break;
+                            case 1:
+                                tab.setText("Usage");
+                                //getActionBar().setTitle("Light Usage");
+                                break;
+                            case 2:
+                                tab.setText("User");
+                                //getActionBar().setTitle("User");
+                                break;
+                            default:
+                                tab.setText("Help and About");
+                                //getActionBar().setTitle("Help and About");
+                                break;
+                        }
+                        //tab.setText("Tab " + (position + 1));
                     }
                 }).attach();
 
@@ -131,5 +149,8 @@ public class LTHome extends AppCompatActivity {
             clientThread.sendMessage("!D");
             clientThread = null;
         }
+    }*/
+    /*public void setActionBarTitle(String title){
+        YOUR_CUSTOM_ACTION_BAR_TITLE.setText(title);
     }*/
 }

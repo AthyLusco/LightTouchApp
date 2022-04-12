@@ -1,5 +1,6 @@
 package com.example.lighttouch;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -29,14 +33,17 @@ public class SwitchFragment extends Fragment {
 
     public static final int SERVERPORT = 5040;
 
-    public static final String SERVER_IP = "192.168.142.108";
+    public static final String SERVER_IP = "10.0.0.48";
     private SwitchFragment.ClientThread clientThread;
     private Thread thread;
-
 
     TextView text;
     Button on;
     Button off;
+
+    private FirebaseUser user;
+    private DatabaseReference reference;
+    private String userID;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -73,7 +80,8 @@ public class SwitchFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
+        //Changing the action bar title
+        //getActivity().setTitle("Light Switch");
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -94,7 +102,6 @@ public class SwitchFragment extends Fragment {
         clientThread = new SwitchFragment.ClientThread();
         thread = new Thread(clientThread);
         thread.start();
-
 
         on.setOnClickListener((v) ->{
             text.setText("Lamp is on");

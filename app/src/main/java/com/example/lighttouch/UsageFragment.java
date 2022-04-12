@@ -1,6 +1,7 @@
 package com.example.lighttouch;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -62,6 +63,10 @@ public class UsageFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Changing the action bar title
+        //getActivity().setTitle("Light Usage");
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -77,6 +82,11 @@ public class UsageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_usage, container, false);
         listview = view.findViewById(R.id.listview);
+
+        //Changing the action bar title
+        //ActionBar actionBar = getActivity().getActionBar();
+        //actionBar.setTitle("Light Usage");
+
         ArrayList<String> list = new ArrayList<>();
         ArrayAdapter adapter = new ArrayAdapter<String>(view.getContext(), R.layout.list_items,list);
 
